@@ -1,11 +1,17 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.ConnectException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.cg.NetworkFailureException;
 
 public class Entry {
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException, NetworkFailureException {
 		
 /*		int ans;
 		
@@ -41,14 +47,53 @@ public class Entry {
 			e.printStackTrace();
 		}
 		
+		
+		
+		Connection dbConnection = null;
+
+		try{
+			dbConnection = m1();
+			System.out.println(dbConnection);
+		}/*catch(SQLException e){
+			e.printStackTrace();
+		}*/finally{
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		
+		
 		System.out.println("end of main()....");
 		
+	}
+	
+	
+	public static Connection m1() throws SQLException, NetworkFailureException{
 		
+//		Obtain db connection
 		
+		Connection dbConnection;
 		
+		dbConnection = DriverManager.getConnection("connection url");
+		
+		if(true){
+			throw new NetworkFailureException();
+		}
+		
+		return dbConnection;
 		
 		
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
