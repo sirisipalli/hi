@@ -7,9 +7,13 @@ public class Entry3 {
 		Container containerRef = new Container();
 		
 		Thread producerThread = new Producer(containerRef);
+		producerThread.setName("Producer Thread");
+		
 		producerThread.start();
 
 		Thread consumerThread = new Consumer(containerRef);
+		
+		consumerThread.setName("Consumer Thread");
 		consumerThread.start();
 		
 		
