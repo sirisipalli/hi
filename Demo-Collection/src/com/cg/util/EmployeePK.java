@@ -36,7 +36,10 @@ public class EmployeePK {
 		return flag;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return id + "/" + entity;
+	}
 	
 	
 	
